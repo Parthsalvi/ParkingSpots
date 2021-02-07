@@ -5,6 +5,7 @@ import math
 import time
 import pandas as pd
 import geopy
+import unittest
 from flask import Flask, session, jsonify, request, current_app,url_for,redirect,abort
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
@@ -245,8 +246,10 @@ def validateAddPhoneNumber():
     if request.method == 'POST':
         if not phone_number:
             abort(400)
-        session.pop('phone_number')
-        session.pop('otp')
+        if session.get('phone_number'):
+            session.pop('phone_number')
+        if session.get('otp'):
+            session.pop('otp')
         qry = db.session.query(RegisteredUsers).filter_by(phone_number = phone_number)
         total = pd.read_sql_query(qry.statement, db.session.bind)
         session['phone_number'] = phone_number
@@ -488,6 +491,13 @@ class DB_INIT():
         except Exception as e:
             # print(e)
             return False
+
+@app.cli.command()
+def test():
+ """Run the unit tests."""
+ import unittest
+ tests = unittest.TestLoader().discover('tests')
+ unittest.TextTestRunner(verbosity=2).run(tests)
 
 if __name__ == '__main__':
     print('Initializing DB and APP')

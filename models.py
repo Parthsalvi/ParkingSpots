@@ -1,4 +1,5 @@
 from sqlalchemy import *
+from sqlalchemy.ext.hybrid import hybrid_property
 from app import db
 
 class Hubs(db.Model):
@@ -37,6 +38,10 @@ class ParkingSpots(db.Model):
 
 class RegisteredUsers(db.Model):
     __tablename__ = 'RegisteredUsers'
+    __table_args__ = (
+        CheckConstraint('phone_number >= 1000000000'),
+        CheckConstraint('phone_number <= 9999999999'),
+    )
     phone_number = db.Column(db.BigInteger(), primary_key=True)
     otp = db.Column(db.Integer)
     bookings = db.relationship('Bookings', backref='user_ids', lazy='dynamic')
