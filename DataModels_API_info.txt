@@ -1,0 +1,86 @@
+
+Data Models : -
+		Table Hubs
+			hub_id : Integer Primary Key
+			center_latitude = Float
+			center_longitude = Float
+			pre_decimal_lat_hub = Integer
+			pre_decimal_lng_hub = Integer
+			streets : backref ParkingStreets
+
+		Table ParkingStreets
+			Street_id = Integer Primary Key
+			latitude = Float
+			longitude = Float
+			pre_decimal_lat_street = Integer
+			pre_decimal_lng_street = Integer
+			hub_id = foreign_key
+			parkings = backref ParkingSlots
+
+		Table ParkingSpots
+			parking_id = Integer Primary Key
+			cost = float
+			platitude = Float
+			plongitude = foreign_key
+			hub_id = foreign_key
+			bookings = backred Bookings
+
+		Table RegisteredUsers :
+			phone_number : BigInt
+			OTP : Integer
+            bookings = backred Bookings
+
+		Table Bookings :
+			booking_id = Integer Primary Key
+			phone_number = foreign_key
+			booking_date = string
+			booking_slot = int between 1, 24
+			booked_on = datetime
+
+APIS :
+
+	/getTotals/
+		Get total parking, booked parking, available parking
+
+	/getAllHubsInMapView/
+		Get all hubs in  Hubs table
+
+	/getHub/
+		Given latitude, longitude, radius find nearby hubs and closest hub
+
+	/getStreet/
+		Given latitude, longitude, radius find nearby streets and closest street
+
+	/getParking/
+		Given latitude, longitude, radius find nearby parkings and closest parking
+
+    /getAllStreetsInMapView/
+        Given hub_id get all streets
+
+    /getAllParkingSlotsInStreet/
+        Given street_id get all streets
+
+    /getAllUsers/
+        Get all userlist from RegisteredUsers table
+
+    ### USER specific apis
+    /validateAddPhoneNumber/
+        POST : for given phone number check if it already exists else validate by sending otp
+        PATCH : user sends received otp which will be checked with otp in session
+        Once validate user is added in RegisteredUsers table and session
+
+    /checkAddBookings/
+        POST : Given booking_date, booking_slot and parking_id. Check availability of parking slot
+        :return: Available / Not Available
+        GET : For the requested parking_id return its parking cost.
+        PATCH : After payment confirmation from UI add entry in Bookings table
+        :return: Parking Booked / Failed
+
+    /removeBooking/
+        Given booking_id check if booking exists and if it does delete the entry
+        :return: appropriate response for UI
+
+
+    /getAllBookings/
+        Get all bookings for current user
+

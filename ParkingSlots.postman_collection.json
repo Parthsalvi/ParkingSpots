@@ -1,0 +1,434 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ParkingSlots",
+		"_postman_id": "cac7afcd-9fae-cf55-ce4c-eb18da643265",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_all_totals",
+			"request": {
+				"url": "localhost:8080/getTotals",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get_all_hubs",
+			"request": {
+				"url": "localhost:8080/getAllHubsInMapView",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get_all_streets",
+			"request": {
+				"url": "localhost:8080/getAllStreetsInMapView",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "hub_id",
+							"value": "18",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get_street_given_hub_id",
+			"request": {
+				"url": "localhost:8080/getAllStreetsInMapView",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "hub_id",
+							"value": "18",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get_parking_given_street_id",
+			"request": {
+				"url": "localhost:8080/getAllParkingSlotsInStreet",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "street_id",
+							"value": "17188",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get_nearby_hubs",
+			"request": {
+				"url": "localhost:8080/getHub",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "latitude",
+							"value": "20.234432",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "74.234552",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "radius",
+							"value": "8",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get_nearby_Street",
+			"request": {
+				"url": "localhost:8080/getStreet",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "latitude",
+							"value": "19.010450",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "73.02014",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "radius",
+							"value": "40",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get_nearby_parking",
+			"request": {
+				"url": "localhost:8080/getParking",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "latitude",
+							"value": "19.010450",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "73.02014",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "radius",
+							"value": "20",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "validateAddPhoneNumber",
+			"request": {
+				"url": "localhost:8080/validateAddPhoneNumber",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "9870474671",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "already_exists",
+							"value": "false",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "validated",
+							"value": "false",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "invalid_number",
+							"value": "false",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "entered_otp",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "country_code",
+							"value": "+91",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "validateAddPhoneNumber",
+			"request": {
+				"url": "localhost:8080/validateAddPhoneNumber",
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entered_otp",
+							"value": "370210",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBookings",
+			"request": {
+				"url": "localhost:8080/getAllBookings",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"url": "localhost:8080/getAllUsers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "checkAddBookings",
+			"request": {
+				"url": "localhost:8080/checkAddBookings",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "booking_date",
+							"value": "2021-02-11",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "booking_slot",
+							"value": "19",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "parking_id",
+							"value": "171011000",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "checkAddBookings_CONFIRM",
+			"request": {
+				"url": "localhost:8080/checkAddBookings",
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "booking_date",
+							"value": "2021-02-10",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "booking_slot",
+							"value": "11",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parking_id",
+							"value": "171011000",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "confirmed",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "checkAddBookings_COST",
+			"request": {
+				"url": "localhost:8080/checkAddBookings",
+				"method": "GET",
+				"header": [
+					{
+						"key": "parking_id",
+						"value": "171011000",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "booking_date",
+							"value": "2021-02-10",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "booking_slot",
+							"value": "11",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parking_id",
+							"value": "171011000",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "confirmed",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "removeBooking",
+			"request": {
+				"url": "localhost:8080/removeBooking",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bid",
+							"value": "6",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
