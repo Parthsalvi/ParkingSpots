@@ -18,14 +18,14 @@ Run Unittest using
   flask test
 
 Note:
-  Database Models in models.py
-  Database used SQLite
-  Data available in /data folder
-  If /data/ is empty, new sample data will get generated.
-  Postman script added named ParkingSlots.postman_collection.json
-  Overview in DataModels_API_info.txt
-  Problem statement in description.txt
-  Unittests in /test/ module
+ - Database Models in models.py
+ - Database used SQLite
+ - Data available in /data folder
+ - If /data/ is empty, new sample data will get generated.
+ - Postman script added named ParkingSlots.postman_collection.json
+ - Overview in DataModels_API_info.txt
+ - Problem statement in description.txt
+ - Unittests in /test/ module
   
   
  
