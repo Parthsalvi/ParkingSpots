@@ -6,6 +6,7 @@ import time
 import pandas as pd
 import geopy
 import unittest
+import logging
 from flask import Flask, session, jsonify, request, current_app,url_for,redirect,abort
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
@@ -36,6 +37,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 from models import *
 
+logging.basicConfig(filename='./logs/app.log', level=logging.DEBUG)
 #################################################### API ROUTES ##############################################
 
 ################# Map related APIS #################
