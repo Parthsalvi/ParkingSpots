@@ -164,13 +164,18 @@ def getParking():
         longitude=float(longitude)
         closest_distance = float(radius)
         closest_parking = ''
+        parking_list = []
         for parking_id, lat, lng in zip(total['pid'], total['platitude'], total['plongitude']):
             distance = get_distance(lat, latitude, lng, longitude)
+            if distance < radius:
+                # to get all pakrings in given radius
+                parking_list.append(parking_id)
             if distance < closest_distance:
+                # to get closest parking
                 closest_distance = distance
                 closest_parking = parking_id
         result = {'total_nearby_parking':len(total),
-                  'parking_list':total.to_dict('records'),
+                  'parking_list':parking_list,
                   'closest_parking':closest_parking,
                   }
     else:
@@ -399,7 +404,7 @@ def generate_otp(phone_number):
     :return: otp
     '''
     otp = random.randrange(100000, 999999)
-
+    print(otp)
     return otp
 
 class DB_INIT():
@@ -519,4 +524,4 @@ if __name__ == '__main__':
             print(e)
             DB_INIT().run()
             DB_INIT().extract_data()
-    app.run(host='0.0.0.0', port='8080', debug=False)
+    app.run(host='0.0.0.0', port='8080', debug=True)
